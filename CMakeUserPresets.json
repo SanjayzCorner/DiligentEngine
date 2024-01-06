@@ -1,0 +1,34 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 21,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "Emscripten",
+            "displayName": "Emscripten",
+            "binaryDir": "${sourceDir}/build/Emscripten",
+            "generator": "Ninja Multi-Config",
+            "toolchainFile": "C:/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+            "cacheVariables": {
+                "DILIGENT_BUILD_CORE_TESTS": "ON"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Debug",
+            "configurePreset": "Emscripten",
+            "configuration": "Debug",
+            "jobs": 8
+        },
+        {
+            "name": "Release",
+            "configurePreset": "Emscripten",
+            "configuration": "Release",
+            "jobs": 8
+        }
+    ]
+}
